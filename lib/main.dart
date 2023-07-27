@@ -1,8 +1,11 @@
+import 'package:bloc_pattern/helpers/app_bloc_delegate.dart';
 import 'package:bloc_pattern/ui/counter_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
+  Bloc.observer = AppBlocDelegate();
 }
 
 class MyApp extends StatelessWidget {
