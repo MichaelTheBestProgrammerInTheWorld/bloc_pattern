@@ -7,4 +7,4 @@ abstract class PostsEvent {
 
 class PostsInitialFetchEvent extends PostsEvent {}
 
-//class DecrementCounterValue extends CounterEvents {}
+class PostAddEvent extends PostsEvent {}
