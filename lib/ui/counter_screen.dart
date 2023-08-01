@@ -1,3 +1,4 @@
+import 'package:bloc_pattern/api/ui/posts_page.dart';
 import 'package:bloc_pattern/bloc/counter_bloc.dart';
 import 'package:bloc_pattern/bloc/counter_events.dart';
 import 'package:bloc_pattern/bloc/counter_states.dart';
@@ -27,30 +28,47 @@ class CounterScreen extends StatelessWidget {
               backgroundColor: Colors.cyanAccent,
             ),
             body: Center(
-              child: Row(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  FloatingActionButton(
-                    onPressed: () {
-                      CounterBloc.get(context).add(IncrementCounterValue());
-                    },
-                    child: Icon(Icons.add),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FloatingActionButton(
+                        onPressed: () {
+                          CounterBloc.get(context).add(IncrementCounterValue());
+                        },
+                        child: Icon(Icons.add),
+                      ),
+                      SizedBox(
+                        width: 25,
+                      ),
+                      Text(
+                        counter.toString(),
+                        style: TextStyle(fontSize: 25),
+                      ),
+                      SizedBox(
+                        width: 25,
+                      ),
+                      FloatingActionButton(
+                        onPressed: () {
+                          CounterBloc.get(context).add(DecrementCounterValue());
+                        },
+                        child: Icon(Icons.remove),
+                      ),
+                    ],
                   ),
                   SizedBox(
-                    width: 25,
+                    height: 8,
                   ),
-                  Text(
-                    counter.toString(),
-                    style: TextStyle(fontSize: 25),
-                  ),
-                  SizedBox(
-                    width: 25,
-                  ),
-                  FloatingActionButton(
+                  MaterialButton(
                     onPressed: () {
-                      CounterBloc.get(context).add(DecrementCounterValue());
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PostsPage()),
+                      );
                     },
-                    child: Icon(Icons.remove),
+                    child: Text('Call API'),
                   ),
                 ],
               ),
