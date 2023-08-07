@@ -2,6 +2,7 @@ import 'package:bloc_pattern/api/ui/posts_page.dart';
 import 'package:bloc_pattern/bloc/counter_bloc.dart';
 import 'package:bloc_pattern/bloc/counter_events.dart';
 import 'package:bloc_pattern/bloc/counter_states.dart';
+import 'package:bloc_pattern/sqflite/ui/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,6 +36,7 @@ class CounterScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       FloatingActionButton(
+                        heroTag: "btn1",
                         onPressed: () {
                           CounterBloc.get(context).add(IncrementCounterValue());
                         },
@@ -51,6 +53,7 @@ class CounterScreen extends StatelessWidget {
                         width: 25,
                       ),
                       FloatingActionButton(
+                        heroTag: "btn2",
                         onPressed: () {
                           CounterBloc.get(context).add(DecrementCounterValue());
                         },
@@ -69,6 +72,19 @@ class CounterScreen extends StatelessWidget {
                       );
                     },
                     child: Text('Call API'),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  MaterialButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HomePage(title: 'title')),
+                      );
+                    },
+                    child: Text('Go to local database'),
                   ),
                 ],
               ),
