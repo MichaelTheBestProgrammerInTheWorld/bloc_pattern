@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // Testing theme
         // Testing theme 2
+        // Testing theme 3
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
