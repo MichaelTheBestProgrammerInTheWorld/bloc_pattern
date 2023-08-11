@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'BloC Pattern',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        // Testing theme
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
